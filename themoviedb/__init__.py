@@ -16,4 +16,4 @@ themoviedb.config.from_pyfile(os.path.join(os.path.dirname(__file__), 'static','
 print("1:"+ environ.get("PORT", 5000));
 if __name__ == 'themoviedb':
 	print("2");
-	themoviedb.run(port= environ.get("PORT", 5000))
+	themoviedb.run(host='0.0.0.0',port= environ.get("PORT", 5000))
