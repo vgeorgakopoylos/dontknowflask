@@ -10,6 +10,6 @@ themoviedb.config.update({'TEMPLATES_AUTO_RELOAD': True})
 
 # Neither does this:
 themoviedb.templates_auto_reload = True
-themoviedb.config.from_pyfile(os.path.join(os.path.dirname(__file__), 'static\configuration','devconfig.cfg'));
+themoviedb.config.from_pyfile(os.path.join(os.path.dirname(__file__), 'static','configuration','devconfig.cfg'));
 
 
