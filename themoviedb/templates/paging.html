@@ -1,0 +1,25 @@
+<div class="pagination-wrapper">
+	<div class="pagination">
+		{% if curPage|int != 1 %}
+			<a class="prev page-numbers" href="{{ url_for(pagingMethod, curPage=curPage|int-1) }}">Previous</a>
+		{% endif %}
+		{% for i in range(1,pageLimit+1) if currentPage!=totalPages %}
+			{% if pageLimit >= totalPages %}
+				{% set currentPage = i %}
+			{% else %}
+				{% if curPage|int+(pageLimit/2)|int<=totalPages and curPage|int-(pageLimit/2|int|round(1,'floor'))>0 %}
+					{% set currentPage = curPage|int-(pageLimit/2|int)+i %}
+				{% elif curPage|int+(pageLimit/2)|int>totalPages and curPage|int-(pageLimit/2|int|round(1,'floor'))>0 %}
+					{% set currentPage = curPage|int -(pageLimit|int-(totalPages|int-curPage|int))+i %}
+				{% elif curPage|int+(pageLimit/2)|int<=totalPages|int and curPage|int-(pageLimit/2|int|round(1,'floor'))<=0 %}
+					{% set currentPage = i %}
+				{% endif %}	
+			{% endif %}	
+			<a class="page-numbers" href="{{ url_for(pagingMethod, curPage=currentPage|int)}}">{{currentPage|int}}</a>
+		{%endfor%}
+		{% if curPage|int != totalPages|int %}
+			<a class="next page-numbers" href="{{ url_for(pagingMethod, curPage=curPage|int+1) }}">Next</a>
+		{% endif %}	
+	</div>
+</div>	
+

@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <table style="aling:left">
+	{% for item in itemList %}
+		{% if loop.index%maxNumOfCol == 1 %}
+			<tr>
+		{% endif %}
+		<td><a href="{{ url_for(drilldownMethod, itemid=item.id) }}">{{item.poster_dom|safe}}</a></td>
+		{% if loop.index%maxNumOfCol == 0 %}
+			</tr>
+		{% endif %}	
+	{% endfor %}
+	</table>
+
+	{% if pagingMethod is not none %}  
+		<div>
+		{% include 'pagingcalculator.html' %}
+		</div>
+	{% endif %}	
+{% endblock %}
