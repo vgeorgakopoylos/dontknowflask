@@ -13,7 +13,7 @@ themoviedb.config.update({'TEMPLATES_AUTO_RELOAD': True})
 themoviedb.templates_auto_reload = True
 themoviedb.config.from_pyfile(os.path.join(os.path.dirname(__file__), 'static','configuration','devconfig.cfg'));
 
-print("1");
+print("1:"+ environ.get("PORT", 5000));
 if __name__ == 'themoviedb':
 	print("2");
 	themoviedb.run(port= environ.get("PORT", 5000))
