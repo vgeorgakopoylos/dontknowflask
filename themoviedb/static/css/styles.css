@@ -177,13 +177,23 @@
 }
 .icon-bar3 
 {
-	position: fixed;
-	#top:31px;  
+	position: fixed; 
 	width: 20px;
 	height: 3px;
 	background: orange;
 	transition: 0.5s;
 	transform: translate3d(-1px,15px,0px) rotate(30deg);
+}
+
+input[type='number'] 
+{
+	-moz-appearance:textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0; /* Removes leftover margin */
 }
 
 /******Start Calculator******/
@@ -225,18 +235,18 @@
 .calculator-button
 {
 	font: bold 20px Arial;
-	text-decoration: none;
 	background-color: #101010;
 	color: #ffa500;
 	padding: 2px 6px 2px 6px;
 	border: none;
-	width:50px;
-	height:50px;
+	width:45px;
+	height:45px;
 }
 
 .calculator-button a 
 {
     color: #fe9214;
+	text-decoration:none;
 }
 .calculator-button a:visited 
 {
@@ -245,17 +255,16 @@
 
 .calculator-screen
 {
-	font: bold 16px Calculator;
-	text-decoration: none;
+	font: bold 15px Calculator;
 	background-color: #101010;
-	color:#fe9214;;
+	color:#fe9214;
 	padding: 2px 6px 2px 6px;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	border-left: 1px solid black;
 	width:100%;
-	text-align:right
+	text-align:right;
 }
 
 @font-face
@@ -275,9 +284,10 @@ $grey-light: #eee;
 $green: #86c023;
 $blue: #017ac7;
 
-.pagination-wrapper {
-  text-align: center;
-  margin: 40px 0;
+.pagination-wrapper 
+{
+	text-align: center;
+	margin: 40px 0;
 }
 
 .pagination {

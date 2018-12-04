@@ -7,16 +7,10 @@ import os
 
 @themoviedb.route('/')
 @themoviedb.route('/home')
-@themoviedb.route('/moviesupcoming',methods=['GET', 'POST'])
+@themoviedb.route('/moviesupcoming')
 def moviesupcoming():
-	curPage = "";
-	if request.args.get('curPage') is not None:
-		curPage = request.args.get('curPage');
-	elif request.form.get('curPage', None) is not None :
-		curPage = request.form['curPage']
-	else:
-		curPage = 1;
-		
+	curPage = 1 if request.args.get('curPage') is None else request.args.get('curPage');
+
 	dataResp = requestlib.apiCallGeneral(searchItem='movie', searchMethod='upcoming',additionalParams={"page" : curPage});
 	upcomingMovies = dataResp['results'];
 	upcomingMovies=transformations.upcomingMoviesTransf(upcomingMovies)

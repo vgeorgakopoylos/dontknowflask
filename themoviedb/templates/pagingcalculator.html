@@ -3,8 +3,8 @@
 			<tr><td colspan="{{pageColLimit}}"><a  href="{{ url_for(pagingMethod, curPage=curPage|int-1) }}"><span class="triangle-up"></span></a></td></tr>
 		{% endif %}
 		<tr>
-		<form action="{{pagingMethod}}" method="POST">
-			<td colspan="{{pageColLimit-1}}"><input id="curPage" name="curPage" class="calculator-screen" placeholder="Select Page" title="The input number must be between 1 and {{totalPages}}" min=1 max={{totalPages}}></td>
+		<form id="selectPageForm" action="{{pagingMethod}}">
+			<td colspan="{{pageColLimit-1}}"><input id="curPage" type="number" name="curPage" class="calculator-screen" placeholder="Select Page" title="The input number must be between 1 and {{totalPages}}" min=1 max={{totalPages}} required></td>
 			<td><input type="submit" class="calculator-submit-button"value="Go!"></td>
 		</form>
 		</tr>

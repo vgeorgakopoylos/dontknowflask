@@ -1,9 +1,4 @@
-$('#curPage').keypress(function(e) 
+$('#selectPageForm').submit(function(event)
 {
-	//validations to be implemented
-	//alert(e.key);
-	alert(this.max)
-	//alert(this.value);
-	//console.log(e);
-	//e.preventDefault();
+	$('#selectPageForm').attr('action', $('#selectPageForm').attr('action')+"?curPage="+$('#curPage').val());
 });
