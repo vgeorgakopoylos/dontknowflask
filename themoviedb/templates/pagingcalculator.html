@@ -1,11 +1,11 @@
 <table class="calculator-table">
 		{% if curPage|int != 1 %}
-			<tr><td colspan="{{pageColLimit}}"><a  href="{{ url_for(pagingMethod, curPage=curPage|int-1) }}"><span class="triangle-up"></span></a></td></tr>
+			<tr class="arrowtablerow"><td colspan="{{pageColLimit}}"><a href="{{ url_for(pagingMethod, curPage=curPage|int-1) }}" title="Previous Page"><img class="uparrow" src="{{url_for('static', filename='images/updownarrow.png')}}"></td></tr>
 		{% endif %}
 		<tr>
 		<form id="selectPageForm" action="{{pagingMethod}}">
-			<td colspan="{{pageColLimit-1}}"><input id="curPage" type="number" name="curPage" class="calculator-screen" placeholder="Select Page" title="The input number must be between 1 and {{totalPages}}" min=1 max={{totalPages}} required></td>
-			<td><input type="submit" class="calculator-submit-button"value="Go!"></td>
+			<td colspan="{{pageColLimit-1}}"><input id="curPage" type="number" name="curPage" class="calculator-screen" placeholder="Enter Page" title="The input number must be between 1 and {{totalPages}}" min=1 max={{totalPages}} required></td>
+			<td><input type="submit" class="calculator-submit-button" value="Go!"></td>
 		</form>
 		</tr>
 		{% for i in range(1,pageLimit+1) if currentPage!=totalPages %}
@@ -23,13 +23,13 @@
 			{% if loop.index%pageColLimit == 1 %}
 				<tr>
 			{% endif %}
-			<td class="calculator-button" ><a href="{{ url_for(pagingMethod, curPage=currentPage|int)}}">{{currentPage|int}}</a></td>
+			<td class="calculator-button" ><a href="{{ url_for(pagingMethod, curPage=currentPage|int)}}"><span>{{currentPage|int}}</span></a></td>
 			{% if loop.index%pageColLimit == 0 %}
 				</tr>
 			{% endif %}				
 		{%endfor%}
 		{% if curPage|int != totalPages|int %}
-			<tr><td  colspan="{{pageColLimit}}"><a  href="{{ url_for(pagingMethod, curPage=curPage|int+1) }}"><span class="triangle-down"></span></a></td></tr>
+			<tr class="arrowtablerow"><td  colspan="{{pageColLimit}}"><a href="{{ url_for(pagingMethod, curPage=curPage|int+1) }}"><img class="downarrow" src="{{url_for('static', filename='images/updownarrow.png')}}" title="Next Page"></a></td></tr>
 		{% endif %}	
 </table>
 

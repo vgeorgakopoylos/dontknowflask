@@ -1,8 +1,9 @@
 from themoviedb import themoviedb
 from flask import render_template,send_from_directory,request
 from themoviedb import requestlib,transformations
-
 import os
+from flask import jsonify
+import urllib
 
 
 @themoviedb.route('/')
@@ -21,7 +22,7 @@ def moviesupcoming():
 										   curPage = curPage,
 										   drilldownMethod = 'moviedesc',
 										   pagingMethod = 'moviesupcoming',
-										   pageLimit = 10,
+										   pageLimit = 9,
 										   pageColLimit = 3,
 										   totalPages = totalPages);
 										   
@@ -39,7 +40,7 @@ def moviestoprated():
 										   curPage = curPage,
 										   drilldownMethod = 'moviedesc',
 										   pagingMethod = 'moviestoprated',
-										   pageLimit = 10,
+										   pageLimit = 9,
 										   pageColLimit = 3,
 										   totalPages = totalPages);		
 
@@ -60,11 +61,17 @@ def moviespopular():
 										   pageLimit = 10,
 										   pageColLimit = 3,
 										   totalPages = totalPages);	
+										   
+@themoviedb.route('/moviedesc')
+def moviedesc():
+	dataResp = requestlib.apiCallById(searchItem = 'movie',itemId = request.args.get('itemid'), itemSuffix = 'images');
+	print ('****:'+request.remote_addr);
+	response = urllib.request.urlopen('http://api.hostip.info/get_html.php?ip=10.40.202.12&position=true').read()
+
+	print(response)	
+	
 	
 @themoviedb.route('/favicon.ico')
 def favicon():
 	return send_from_directory(os.path.join(themoviedb.root_path, 'static'),'images/favicon.ico')
 	
-@themoviedb.route('/moviedesc')
-def moviedesc():
-	return "";
