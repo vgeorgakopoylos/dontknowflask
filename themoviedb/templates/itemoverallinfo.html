@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+	<div style="width:420px;">
+		<div style="position:relative;">{% include 'imageslideshow.html' %}</div>
+		<div style="position:relative; top:250px">{% include 'videoslideshow.html' %}</div>
+	</div>
+	<div style="border-style:dotted;flex-grow: 1">{% include 'itemdescription.html' %}</div>
+{% endblock %}
+

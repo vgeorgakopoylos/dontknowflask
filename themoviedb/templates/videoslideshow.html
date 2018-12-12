@@ -1,0 +1,20 @@
+{%if itemInfo.videos.results|length>0 %}
+	<div class="slideshowcontainer">
+		<div id="videoslideshow">
+		{% for video in itemInfo.videos.results |selectattr('type', 'equalto', 'Trailer') %}
+			{% if loop.index == 1 %}
+				<iframe class="slideshowvisible" src="{{video.video_path}}"   frameborder="0" allowfullscreen></iframe>
+			{% else %}	
+				<iframe class="slideshowhiiden" src="{{video.video_path}}"  allowfullscreen></iframe>
+			{% endif %}
+		{%endfor%}	
+		</div>
+
+		{%if itemInfo.videos.results|selectattr('type', 'equalto', 'Trailer')|list|length>1 %}
+			<div class="slideshowbuttoncont">
+				<a href="#" class="arrowL" onclick="showSlides(-1, 'videoslideshow', 'iframe', 'timeoutHandleVid')">&lt;</a>
+				<a href="#" class="arrowR" onclick="showSlides(1, 'videoslideshow', 'iframe', 'timeoutHandleVid')">&gt;</a>	
+			</div>
+		{% endif %}
+	</div>
+{% endif %}

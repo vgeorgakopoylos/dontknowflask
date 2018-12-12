@@ -1,0 +1,63 @@
+<table style="width:100%" border="1">
+	<tr>
+		<td colspan=2 style="text-align:center;" height="100">
+		{{itemInfo.title}}
+		</td>
+	</tr>
+	{% if itemInfo.overview is not none %}
+	<tr>	
+		<td>
+			Overview
+		</td>
+		<td>
+			{{itemInfo.overview}}
+		</td>
+	</tr>
+	{% if itemInfo.vote_average is not none %}	
+	<tr>
+		<td>
+			Raiting
+		</td>
+		<td>
+			{% endif %}
+			{% with rate = itemInfo.vote_average %}
+			{% include 'ratingfivestar.html' %}
+			{% endwith %}	
+		</td>
+	</tr>
+	{% endif %}
+	{% if itemInfo.vote_count >0 %}	
+	<tr>
+		<td>
+			Raiting Info
+		</td>
+		<td>
+			Average {{itemInfo.vote_average}}/10 out of {{itemInfo.vote_count}} Votes
+		</td>
+	</tr>
+	{% endif %}	
+	{% if itemInfo.homepage is not none %}		
+	<tr>
+		<td>
+			Site
+		</td>
+		<td>
+			<a style="color:orange" href="{{itemInfo.homepage}}">{{itemInfo.homepage}}</a>
+		</td>
+	</tr>
+	{% endif %}
+	<tr>
+		<td>
+			Genres
+		</td>
+		<td>
+		{% for genres in itemInfo.genres %}
+			{% if not loop.last %}
+				{{genres.name}},
+			{%else %}
+				{{genres.name}}
+			{% endif %}			
+		{%endfor%}			
+		</td>
+	</tr>
+</table>
