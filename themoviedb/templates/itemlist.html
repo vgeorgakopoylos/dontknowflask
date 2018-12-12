@@ -7,7 +7,14 @@
 			{% if loop.index%maxNumOfCol == 1 %}
 				<tr>
 			{% endif %}
-			<td><a href="{{ url_for(drilldownMethod, itemid=item.id) }}">{{item.poster_dom|safe}}</a></td>
+				<td><a href="{{ url_for(drilldownMethod, itemid=item.id) }}">
+			{% if item.poster_path is none %}
+				{{item.poster_dom|safe}}
+				<div class="nopostercont"><img class="itemimg" src="{{url_for('static', filename='images/noposter.jpg')}}"><div class="nopostercentered">{{item.title}}</div></div>
+			{% else %}
+				<img class="itemimg" src="{{item.image_path}}">
+			{% endif %}
+				</a></td>
 			{% if loop.index%maxNumOfCol == 0 %}
 				</tr>
 			{% endif %}	

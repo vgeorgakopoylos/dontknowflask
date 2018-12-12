@@ -15,4 +15,5 @@ themoviedb.config.from_pyfile(os.path.join(os.path.dirname(__file__), 'static','
 
 
 if __name__ == 'themoviedb':
+	themoviedb.secret_key = themoviedb.config['SESSION_SECRET_KEY'] 
 	themoviedb.run(host='0.0.0.0',port= environ.get("PORT", 5000))
