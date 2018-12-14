@@ -1,9 +1,4 @@
-<table style="width:100%" border="1">
-	<tr>
-		<td colspan=2 style="text-align:center;" height="100">
-		{{itemInfo.title}}
-		</td>
-	</tr>
+<table style="width:400px;color:#547d8f" border="1">
 	{% if itemInfo.overview is not none %}
 	<tr>	
 		<td>
@@ -60,4 +55,44 @@
 		{%endfor%}			
 		</td>
 	</tr>
+	{% if itemInfo.status == "Released" %}	
+	<tr>
+		<td>
+			Released
+		</td>
+		<td>
+			{{itemInfo.release_date}}
+		</td>
+	</tr>		
+	{% else %}
+	<tr>
+		<td>
+			Upcoming Release
+		</td>
+		<td>
+			{{itemInfo.release_date}}
+		</td>
+	</tr>		
+	{% endif %}	
+	{% if itemInfo.production_companies|length()>0 %}
+	<tr>
+		<td>
+			Production Companies
+		</td>
+		<td style="vertical-align: middle">
+			{% for production_comp in itemInfo.production_companies %}
+				{{production_comp.name}}<br>
+			{%endfor%}			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Directors
+		</td>
+		<td style="vertical-align: middle">
+			{% include 'directors.html' %}
+		</td>
+	</tr>
+	{% endif %}
+	
 </table>

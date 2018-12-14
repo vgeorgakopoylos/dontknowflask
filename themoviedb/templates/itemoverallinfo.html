@@ -1,10 +1,21 @@
 {% extends "index.html" %}
 
 {% block content %}
-	<div style="width:420px;">
-		<div style="position:relative;">{% include 'imageslideshow.html' %}</div>
-		<div style="position:relative; top:250px">{% include 'videoslideshow.html' %}</div>
+	<div style="display:flex;flex-direction:column;flex:1">
+		<div style="font-family:KRAction;font-size:50;color:#547d8f;text-align:center">
+			{{itemInfo.title}}
+		</div>
+		<div style="display:flex">
+			<div style="width:350px;flex-direction:column">
+				<div style="width:350px">{% include 'imageslideshow.html' %}</div>
+				<div style="width:350px">{% include 'videoslideshow.html' %}</div>
+			</div>
+			<div style="width:500px">{% include 'itemdescription.html' %}</div>
+			<div>{% include 'casting.html' %}</div>
+		</div>
+
+		
 	</div>
-	<div style="border-style:dotted;flex-grow: 1">{% include 'itemdescription.html' %}</div>
 {% endblock %}
 
+  

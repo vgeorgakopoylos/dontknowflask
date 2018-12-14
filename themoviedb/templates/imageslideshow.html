@@ -1,26 +1,22 @@
 {%if itemInfo.images.posters|length+itemInfo.images.backdrops|length>0 %}
-	<div class="slideshowcontainer">
-		<div id="imageslideshow">
-		{% for imagePoster in itemInfo.images.posters %}
-			{% if loop.index == 1 %}
-				<img class="slideshowvisible" src={{imagePoster.image_path|safe}}>
-			{% else %}	
-				<img class="slideshowhiiden" src={{imagePoster.image_path|safe}}>
-			{% endif %}
-		{%endfor%}
-		{% for imageBackdrop in itemInfo.images.backdrops %}
-			{% if loop.index == 1 and itemInfo.images.posters|length == 0 %}
-				<img class="slideshowvisible" src={{imageBackdrop.image_path|safe}}>
-			{% else %}	
-				<img class="slideshowhiiden" src={{imageBackdrop.image_path|safe}}>
-			{% endif %}
-		{%endfor%}		
-		</div>
-		{%if itemInfo.images.posters|length+itemInfo.images.backdrops|length>1 %}
-			<div class="slideshowbuttoncont">
-				<a href="#" class="arrowL" onclick="showSlides(-1, 'imageslideshow', 'img', 'timeoutHandleImg')">&lt;</a>
-				<a href="#" class="arrowR" onclick="showSlides(1, 'imageslideshow', 'img', 'timeoutHandleImg')">&gt;</a>	
-			</div>
+	<div id="imageslideshow">
+	{% for imagePoster in itemInfo.images.posters %}
+		{% if loop.index == 1 %}
+			<div><img class="slideshowvisible" src={{imagePoster.image_path}}></div>
+		{% else %}	
+			<div><img class="slideshowhiiden" src={{imagePoster.image_path}}></div>
 		{% endif %}
+	{%endfor%}
+	{% for imageBackdrop in itemInfo.images.backdrops %}
+		{% if loop.index == 1 and itemInfo.images.posters|length == 0 %}
+			<div><img class="slideshowvisible" src={{imageBackdrop.image_path}}></div>
+		{% else %}	
+			<div><img class="slideshowhiiden" src={{imageBackdrop.image_path}}></div>
+		{% endif %}
+	{%endfor%}		
+	{%if itemInfo.images.posters|length+itemInfo.images.backdrops|length>1 %}
+		<a href="#" class="arrowL" onclick="showSlides(-1, 'imageslideshow', 'img', 'timeoutHandleImg')">&lt;</a>
+		<a href="#" class="arrowR" onclick="showSlides(1, 'imageslideshow', 'img', 'timeoutHandleImg')">&gt;</a>	
+	{% endif %}		
 	</div>
 {% endif %}
