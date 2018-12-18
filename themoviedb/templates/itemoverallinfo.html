@@ -3,8 +3,7 @@
 {% block content %}
 	<div class="itemoverallinfocont">
 		<div class="itemoverallinfotitle">
-			{{itemInfo.title}}
-			{{itemInfo['name']}}
+			{{itemInfo[config['ITEMS_KEY_GAPS']['title'][itemdesc]]}}
 		</div>
 		<div style="display:flex">
 			<div style="width:350px;flex-direction:column">

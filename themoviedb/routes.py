@@ -28,7 +28,8 @@ def moviesupcoming():
 	upcomingMovies = dataResp['results'];
 	upcomingMovies = transformations.appendImagePath (upcomingMovies, '', 'image_path', 'IMAGE_WIDTH_GENERAL', 'poster_path');
 	totalPages = dataResp['total_pages'];
-	return render_template('itemlist.html',itemList = upcomingMovies, 
+	return render_template('itemlist.html',itemdesc = 'movie',
+										   itemList = upcomingMovies, 
 										   maxNumOfCol = 4, 
 										   curPage = curPage,
 										   drilldownMethod = 'moviedesc',
@@ -46,7 +47,8 @@ def moviestoprated():
 	topRatedMovies = transformations.appendImagePath (topRatedMovies, '', 'image_path', 'IMAGE_WIDTH_GENERAL', 'poster_path');
 	totalPages = dataResp['total_pages'];
 
-	return render_template('itemlist.html',itemList = topRatedMovies, 
+	return render_template('itemlist.html',itemdesc = 'movie',
+										   itemList = topRatedMovies, 
 										   maxNumOfCol = 4, 
 										   curPage = curPage,
 										   drilldownMethod = 'moviedesc',
@@ -64,7 +66,8 @@ def moviespopular():
 	topPopular = transformations.appendImagePath (topPopular, '', 'image_path', 'IMAGE_WIDTH_GENERAL', 'poster_path');
 	totalPages = dataResp['total_pages'];
 
-	return render_template('itemlist.html',itemList = topPopular, 
+	return render_template('itemlist.html',itemdesc = 'movie',
+										   itemList = topPopular, 
 										   maxNumOfCol = 4, 
 										   curPage = curPage,
 										   drilldownMethod = 'moviedesc',
@@ -89,7 +92,8 @@ def moviedesc():
 	similar = similarResp['results'];
 	similar = transformations.appendImagePath (similar, '', 'image_path', 'IMAGE_WIDTH_SIMILAR', 'poster_path');
 
-	return render_template('itemoverallinfo.html',	itemInfo = movieInfo,
+	return render_template('itemoverallinfo.html',	itemdesc = 'movie',
+													itemInfo = movieInfo,
 													credits = credits, 
 													similarItems = similar,
 													similarMethod = 'moviedesc',
@@ -109,15 +113,15 @@ def similarMoviePage():
 	similar = similarResp['results'];
 	similar = transformations.appendImagePath (similar, '', 'image_path', 'IMAGE_WIDTH_SIMILAR', 'poster_path');	
 	
-	return render_template('similaritemshorizontal.html',
-										similarItems = similar,
-										similarMethod = 'moviedesc',
-										pagingMethod = 'similarMoviePage',
-										pageParameterName = 'simMoviescurPage',
-										pagingGenParameters = {'itemid':request.args.get('itemid')},
-										curPage = curPage,
-										pageLimit = 10,
-										totalPages = totalPages);
+	return render_template('similaritemshorizontal.html',	itemdesc = 'movie',
+															similarItems = similar,
+															similarMethod = 'moviedesc',
+															pagingMethod = 'similarMoviePage',
+															pageParameterName = 'simMoviescurPage',
+															pagingGenParameters = {'itemid':request.args.get('itemid')},
+															curPage = curPage,
+															pageLimit = 10,
+															totalPages = totalPages);
 							
 
 ################################Movies End################################
@@ -132,7 +136,8 @@ def tvonair():
 	tvonair = transformations.appendImagePath (tvonair, '', 'image_path', 'IMAGE_WIDTH_GENERAL', 'poster_path');
 	totalPages = dataResp['total_pages'];
 
-	return render_template('itemlist.html',itemList = tvonair, 
+	return render_template('itemlist.html',itemdesc = 'tv',
+										   itemList = tvonair, 
 										   maxNumOfCol = 4, 
 										   curPage = curPage,
 										   drilldownMethod = 'tvdesc',
@@ -150,7 +155,8 @@ def tvtoprated():
 	tvtoprated = transformations.appendImagePath (tvtoprated, '', 'image_path', 'IMAGE_WIDTH_GENERAL', 'poster_path');
 	totalPages = dataResp['total_pages'];
 
-	return render_template('itemlist.html',itemList = tvtoprated, 
+	return render_template('itemlist.html',itemdesc = 'tv',
+										   itemList = tvtoprated, 
 										   maxNumOfCol = 4, 
 										   curPage = curPage,
 										   drilldownMethod = 'tvdesc',
@@ -168,7 +174,8 @@ def tvpopular():
 	tvpopular = transformations.appendImagePath (tvpopular, '', 'image_path', 'IMAGE_WIDTH_GENERAL', 'poster_path');
 	totalPages = dataResp['total_pages'];
 
-	return render_template('itemlist.html',itemList = tvpopular, 
+	return render_template('itemlist.html',itemdesc = 'tv',
+										   itemList = tvpopular, 
 										   maxNumOfCol = 4, 
 										   curPage = curPage,
 										   drilldownMethod = 'tvdesc',
@@ -193,7 +200,8 @@ def tvdesc():
 	similar = similarResp['results'];
 	similar = transformations.appendImagePath (similar, '', 'image_path', 'IMAGE_WIDTH_SIMILAR', 'poster_path');
 
-	return render_template('itemoverallinfo.html',	itemInfo = tvInfo,
+	return render_template('itemoverallinfo.html',	itemdesc = 'tv',
+													itemInfo = tvInfo,
 													credits = credits, 
 													similarItems = similar,
 													similarMethod = 'tvdesc',
@@ -213,15 +221,15 @@ def similarTVPage():
 	similar = similarResp['results'];
 	similar = transformations.appendImagePath (similar, '', 'image_path', 'IMAGE_WIDTH_SIMILAR', 'poster_path');	
 	
-	return render_template('similaritemshorizontal.html',
-										similarItems = similar,
-										similarMethod = 'moviedesc',
-										pagingMethod = 'similarTVPage',
-										pageParameterName = 'simTVcurPage',
-										pagingGenParameters = {'itemid':request.args.get('itemid')},
-										curPage = curPage,
-										pageLimit = 10,
-										totalPages = totalPages);													
+	return render_template('similaritemshorizontal.html',	itemdesc = 'tv',
+															similarItems = similar,
+															similarMethod = 'moviedesc',
+															pagingMethod = 'similarTVPage',
+															pageParameterName = 'simTVcurPage',
+															pagingGenParameters = {'itemid':request.args.get('itemid')},
+															curPage = curPage,
+															pageLimit = 10,
+															totalPages = totalPages);													
 		
 ################################TV End################################		
 @themoviedb.route('/favicon.ico')

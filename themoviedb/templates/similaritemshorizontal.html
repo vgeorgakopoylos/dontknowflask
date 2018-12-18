@@ -7,7 +7,7 @@
 			<div class="similaritemsimgcont">
 				<a href="{{ url_for(similarMethod, itemid=similarItem.id) }}">
 				{% if similarItem.poster_path is none %}
-					<div class="nopostercont"><img class="itemimg" src="{{url_for('static', filename='images/noposter.jpg')}}"><div class="nopostercentered">{{item.title}}</div></div>
+					<div class="nopostercontsmall"><img width="90" height="140" src="{{url_for('static', filename='images/noposter.jpg')}}"><div class="nopostercentered">{{similarItem.title}}</div></div>
 				{% else %}
 					<img src="{{similarItem.image_path}}">
 				{% endif %}

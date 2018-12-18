@@ -63,8 +63,9 @@
 		<td>
 			{{itemInfo.release_date}}
 		</td>
-	</tr>		
-	{% else %}
+	</tr>	
+	{% endif %}
+	{% if itemInfo.release_date %}	
 	<tr>
 		<td>
 			Upcoming Release
@@ -86,6 +87,8 @@
 		</td>
 	</tr>
 	<tr>
+	{% endif %}
+	{% if credits.crew|selectattr('job', 'equalto', 'Director')|list|length()>0 %}
 		<td>
 			Directors
 		</td>
