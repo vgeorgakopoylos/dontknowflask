@@ -4,14 +4,14 @@
 		{% if loop.index == 1 %}
 			<div><img class="slideshowvisible" src={{imagePoster.image_path}}></div>
 		{% else %}	
-			<div><img class="slideshowhiiden" src={{imagePoster.image_path}}></div>
+			<div><img class="slideshowhidden" src={{imagePoster.image_path}}></div>
 		{% endif %}
 	{%endfor%}
 	{% for imageBackdrop in itemInfo.images.backdrops %}
 		{% if loop.index == 1 and itemInfo.images.posters|length == 0 %}
 			<div><img class="slideshowvisible" src={{imageBackdrop.image_path}}></div>
 		{% else %}	
-			<div><img class="slideshowhiiden" src={{imageBackdrop.image_path}}></div>
+			<div><img class="slideshowhidden" src={{imageBackdrop.image_path}}></div>
 		{% endif %}
 	{%endfor%}		
 	{%if itemInfo.images.posters|length+itemInfo.images.backdrops|length>1 %}

@@ -1,4 +1,4 @@
-<table style="width:400px;color:#547d8f" border="1">
+<table class="descriptiontable">
 	{% if itemInfo.overview is not none %}
 	<tr>	
 		<td>
@@ -37,7 +37,7 @@
 			Site
 		</td>
 		<td>
-			<a style="color:orange" href="{{itemInfo.homepage}}">{{itemInfo.homepage}}</a>
+			<a href="{{itemInfo.homepage}}">{{itemInfo.homepage}}</a>
 		</td>
 	</tr>
 	{% endif %}
@@ -90,7 +90,9 @@
 			Directors
 		</td>
 		<td style="vertical-align: middle">
+			{% with fontcolor = '#e6eaed' %}
 			{% include 'directors.html' %}
+			{% endwith %}	
 		</td>
 	</tr>
 	{% endif %}

@@ -292,104 +292,7 @@ input[type=number]::-webkit-outer-spin-button
 }
 
 /******End Calculator******/
-/*****Paging Style Start****/
-$white: #fff;
-$black: #000;
-$grey: #595959;
-$grey-dark: #2b2b2b;
-$grey-light: #eee;
-$green: #86c023;
-$blue: #017ac7;
 
-.pagination-wrapper 
-{
-	text-align: center;
-	margin: 40px 0;
-}
-
-.pagination {
-	display: inline-block;
-	height: 70px;
-	margin-top: 70px;
-	padding: 0 25px;
-	border-radius: 35px;
-	background-color: #eee;
-
-	@include breakpoint(1199px) 
-	{
-		height: 50px;
-		margin-top: 50px;
-		padding: 0 10px;
-		border-radius: 25px;
-		background-color: #eee;
-	}
-}
-	
-.page-numbers:hover
-	{
-		background-color: orange;
-		color: black;
-	}
-.page-numbers {
-	display: block;
-	padding: 0 25px;
-	float: left;
-	transition: $duration $easing;
-	color: $grey;
-	font-size: 20px;
-	letter-spacing: 0.1em;
-	line-height: 70px;
-
-	:hover
-	{
-		background-color: orange;
-		color: orange;
-	}
-
-	&.prev:hover,
-	&.next:hover {
-		background-color: transparent;
-		color: $green;
-	}
-
-	@include breakpoint(1199px) {
-		padding: 0 15px;
-		font-size: 16px;
-		line-height: 50px;
-	}
-
-	@include breakpoint(touch) {
-		padding: 0 14px;
-		display: none;
-
-		&:nth-of-type(2) {
-			position: relative;
-			padding-right: 50px;
-
-			&::after {
-				content: '...';
-				position: absolute;
-				font-size: 25px;
-				top: 0;
-				left: 45px;
-			}
-		}
-
-		&:nth-child(-n+3),
-		&:nth-last-child(-n+3) {
-			display: block;
-		}
-
-		&:nth-last-child(-n+4) {
-			padding-right: 14px;
-
-			&::after {
-				content: none;
-			}
-		}
-	}
-}
-/*****Paging Style End****/
 
 /****Slideshow Start****/
 
@@ -437,7 +340,7 @@ $blue: #017ac7;
 	top:0;
 }
 
-.slideshowhiiden
+.slideshowhidden
 {
 	opacity : 0;
 	transition: opacity 1s ease-in-out;
@@ -493,7 +396,7 @@ $blue: #017ac7;
 	unicode-bidi: bidi-override;
 	color: #c5c5c5;
 	font-size: 25px;
-	height:25px;
+	height:50px;
 	width: 100px;
 	position: relative;
 	text-align: center;
@@ -504,7 +407,8 @@ $blue: #017ac7;
 	position: absolute;
 	z-index: 1;
 	display: block;
-	top: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	left: 0;
 	overflow: hidden;
 }
@@ -513,9 +417,131 @@ $blue: #017ac7;
 	position: absolute;
 	z-index: 0;
 	display: block;
-	top: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	left: 0;
 	overflow: hidden;
 }
 
 /***Star Rating End***/
+
+/***Similar Horizontal Start***/
+.similarItemRow
+{
+	list-style: none;
+	margin: 12px;
+	white-space: nowrap;
+	display: flex;
+	flex-direction:column;
+	overflow-x: auto;
+	padding: 12px;
+	width:1150px;
+}
+.similarItemCol
+{
+	list-style: none;
+	padding: 0;
+	margin: 12px;
+	white-space: nowrap;
+	display: flex;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+/***Similar Horizontal End***/
+/*****Paging Style Start****/
+
+[data-pagination] 
+{
+	font-size: 14pt;
+	line-height: 1;
+	font-weight: 400;
+	font-family: 'Open Sans', 'Source Sans Pro', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+	-webkit-text-size-adjust: 100%;
+	margin: 1em auto;
+	text-align: center;
+	transition: font-size .2s ease-in-out;
+}
+[data-pagination] ul 
+{
+	list-style-type: none;
+	display: inline;
+	font-size: 100%;
+	margin: 0;
+	padding: .5em;
+}
+[data-pagination] ul li 
+{
+	display: inline-block;
+	font-size: 100%;
+	width: auto;
+	border-radius: 3px;
+}
+[data-pagination] > a 
+{
+	font-size: 140%;
+}
+[data-pagination] a 
+{
+	color: #777;
+	font-size: 100%;
+	padding: .5em;
+	text-decoration: none;
+}
+[data-pagination] a:focus,
+[data-pagination] a:hover 
+{
+	color: #f60;
+}
+[data-pagination] li.current 
+{
+	background: rgba(0,0,0,.2)
+}
+
+[data-pagination] .disabled,
+[data-pagination] [hidden],
+[data-pagination] [disabled] 
+{
+	opacity: .5;
+	pointer-events: none;
+}
+/*****Paging Style End****/
+.similaritemsimgcont
+{
+	margin:10p;
+	height:145px;
+	margin:4px;
+}
+
+.descriptiontable
+{
+	width:450px;
+	color:#e6eaed;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.descriptiontable td
+{
+	border: 1px solid black;
+}
+
+.descriptiontable a
+{
+	color: #1f3399;
+}
+/*****Item Overall Info Grid Start****/
+.itemoverallinfocont
+{
+	display:flex;
+	flex-direction:column;
+	flex:1;
+}
+
+.itemoverallinfotitle
+{
+	font-family:KRAction;
+	font-size:50;
+	color:#e6eaed;
+	text-align:center;
+}
+/*****Item Overall Info Grid Start****/

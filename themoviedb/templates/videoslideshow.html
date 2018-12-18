@@ -4,7 +4,7 @@
 		{% if loop.index == 1 %}
 			<div><iframe class="slideshowvisible" src="{{video.video_path}}"   frameborder="0" allowfullscreen></iframe></div>
 		{% else %}	
-			<div><iframe class="slideshowhiiden" src="{{video.video_path}}"  allowfullscreen></iframe></div>
+			<div><iframe class="slideshowhidden" src="{{video.video_path}}"  allowfullscreen></iframe></div>
 		{% endif %}
 	{%endfor%}	
 	{%if itemInfo.videos.results|selectattr('type', 'equalto', 'Trailer')|list|length>1 %}

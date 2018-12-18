@@ -1,9 +1,10 @@
 {% extends "index.html" %}
 
 {% block content %}
-	<div style="display:flex;flex-direction:column;flex:1">
-		<div style="font-family:KRAction;font-size:50;color:#547d8f;text-align:center">
+	<div class="itemoverallinfocont">
+		<div class="itemoverallinfotitle">
 			{{itemInfo.title}}
+			{{itemInfo['name']}}
 		</div>
 		<div style="display:flex">
 			<div style="width:350px;flex-direction:column">
@@ -11,10 +12,15 @@
 				<div style="width:350px">{% include 'videoslideshow.html' %}</div>
 			</div>
 			<div style="width:500px">{% include 'itemdescription.html' %}</div>
-			<div>{% include 'casting.html' %}</div>
+			<div>
+				{% with fontcolor = '#e6eaed' %}
+				{% include 'casting.html' %}
+				{% endwith %}	
+			</div>
 		</div>
-
-		
+		<div>
+			{% include 'similaritemshorizontal.html' %}
+		</div>
 	</div>
 {% endblock %}
 

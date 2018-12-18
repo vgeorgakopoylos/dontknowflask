@@ -1,0 +1,22 @@
+{% if similarItems|length>0 %}
+	<div class="similarItemRow" id="similarItemRow">
+		<script type="text/javascript" src="{{ url_for('static', filename='js/asyncCallEvents.js') }}"></script>
+		
+		<div class="similarItemCol" >
+		{% for similarItem in similarItems %}
+			<div class="similaritemsimgcont">
+				<a href="{{ url_for(similarMethod, itemid=similarItem.id) }}">
+				{% if similarItem.poster_path is none %}
+					<div class="nopostercont"><img class="itemimg" src="{{url_for('static', filename='images/noposter.jpg')}}"><div class="nopostercentered">{{item.title}}</div></div>
+				{% else %}
+					<img src="{{similarItem.image_path}}">
+				{% endif %}
+				</a>
+			</div>
+		{%endfor%}
+		</div>
+		<div style="text-align:center">
+			{% include 'paging.html' %}
+		</div>	
+	</div>
+{% endif %}
