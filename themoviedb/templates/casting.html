@@ -1,6 +1,6 @@
 {% for actor in credits.cast|selectattr("image_path")  %}
-	<div style="display:flex;flex-direction:row;flex:1"><div><img src={{actor.image_path}}></div><div style="display:flex;justify-content:center;flex-direction:column;color:{{fontcolor}}">{{actor.name}} as "{{actor.character}}"</div></div><br>
+	<div class="castingrowcont"><div><img src={{actor.image_path}}></div><div class="castingdesc">{{actor.name}} {% if actor.character %}as "{{actor.character}}" {% endif %}</div></div><br>
 {%endfor%}
 {% for actor in credits.cast|rejectattr("image_path")  %}
-	<div style="color:{{fontcolor}}"> {{actor.name}} as "{{actor.character}}"</div><br>
+	<div class="castingdesc"> {{actor.name}} {% if actor.character %}as "{{actor.character}}" {% endif %}</div><br>
 {%endfor%}

@@ -9,7 +9,7 @@ import datetime
 def set_parameters():
 	if 'languages' not in session:
 		session['languages'] = '';
-		request_ip = '213.249.40.200';#request.remote_addr;
+		request_ip = request.remote_addr;
 		resp = requestlib.apiIPCall(request_ip);
 		for languages in resp['location']['languages']:
 			session['languages'] = session['languages'] + languages['code']+ ',';

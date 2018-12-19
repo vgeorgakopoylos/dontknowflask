@@ -1,8 +1,8 @@
 {% if similarItems|length>0 %}
-	<div class="similarItemRow" id="similarItemRow">
+	<div class="similaritemrow" id="similaritemrow">
 		<script type="text/javascript" src="{{ url_for('static', filename='js/asyncCallEvents.js') }}"></script>
 		
-		<div class="similarItemCol" >
+		<div class="similaritemcol" >
 		{% for similarItem in similarItems %}
 			<div class="similaritemsimgcont">
 				<a href="{{ url_for(similarMethod, itemid=similarItem.id) }}">
@@ -15,8 +15,10 @@
 			</div>
 		{%endfor%}
 		</div>
-		<div style="text-align:center">
-			{% include 'paging.html' %}
+		<div>
+			{% with itemtobereplaced = 'similaritemrow' %}
+				{% include 'paging.html' %}
+			{% endwith %}
 		</div>	
 	</div>
 {% endif %}

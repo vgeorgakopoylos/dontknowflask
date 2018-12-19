@@ -3,7 +3,7 @@
 	<ul>
 		{% if curPage|int != 1 %}
 			{% set _dummy = pagingGenParameters.update( {pageParameterName: curPage|int-1}) %}
-			<li><a href="/" onClick="changePageAsynch('similarItemRow', '{{ url_for(pagingMethod, **pagingGenParameters)}}'); return false;">Previous</a>
+			<li><a href="/" onClick="changePageAsynch('{{itemtobereplaced}}', '{{ url_for(pagingMethod, **pagingGenParameters)}}'); return false;">Previous</a>
 		{% endif %}
 		{% for i in range(1,pageLimit+1) if currentPage!=totalPages %}
 			{% if pageLimit >= totalPages %}
@@ -19,12 +19,12 @@
 			{% endif %}	
 
 			{% set _dummy = pagingGenParameters.update( {pageParameterName: currentPage|int}) %}
-			<li {% if currentPage|int==curPage|int %} class="current" {% endif %}><a href="/" onClick="changePageAsynch('similarItemRow', '{{ url_for(pagingMethod, **pagingGenParameters)}}'); return false;">{{currentPage|int}}</a>
+			<li {% if currentPage|int==curPage|int %} class="current" {% endif %}><a href="/" onClick="changePageAsynch('{{itemtobereplaced}}', '{{ url_for(pagingMethod, **pagingGenParameters)}}'); return false;">{{currentPage|int}}</a>
 		{% endfor%}
 		{% if curPage|int != totalPages|int %}
 			{% set _dummy = pagingGenParameters.update( {pageParameterName: curPage|int+1}) %}
-			<li><a href="/" onClick="changePageAsynch('similarItemRow', '{{ url_for(pagingMethod, **pagingGenParameters)}}'); return false;">Next</a>
+			<li><a href="/" onClick="changePageAsynch('{{itemtobereplaced}}', '{{ url_for(pagingMethod, **pagingGenParameters)}}'); return false;">Next</a>
 		{% endif %}	
 	</ul>
-</div>
+</nav>
 {% endif %}

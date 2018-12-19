@@ -1,38 +1,30 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 	</head>
 	<body>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/styles.js') }}"></script>
-		
-		<div class="setbar">
-			<div id="setbarbutton" class="setbarbutton" onclick="rightrollsidemenu()">
-			  <span id="icon-bar1" class="icon-bar1"></span>
-			  <span id="icon-bar2" class="icon-bar2"></span>
-			  <span id="icon-bar3" class="icon-bar3"></span>
-			</div>			
-			<img src="{{url_for('static', filename='images/account.png')}}" alt="account" class="accounticon" height="42" width="42"> 
-		</div>	
 		<div id="container" class="container">
 			<div id="navbar" class="navbar">
-				<a href="home">Home</a>
-				<div class="dropdown">
-					<button class="dropbtn">Movies</button>
-					<div class="dropdown-content">
-						<a href="moviesupcoming">Upcoming</a>
-						<a href="moviestoprated">Top Rated</a>
-						<a href="moviespopular">Popular</a>
+				<div class="navbuttcont">
+					<a href="home">Home</a>
+					<div class="dropdown">
+						<button class="dropbtn">Movies</button>
+						<div class="dropdown-content">
+							<a href="moviesupcoming">Upcoming</a>
+							<a href="moviestoprated">Top Rated</a>
+							<a href="moviespopular">Popular</a>
+						</div>
 					</div>
-				</div>
-				<div class="dropdown">
-					<button class="dropbtn">TV</button>
-					<div class="dropdown-content">
-						<a href="tvonair" title="TV show that has an episode with an air date in the next 7 days">On Air</a>
-						<a href="tvtoprated">Top Rated</a>
-						<a href="tvpopular">Popular</a>
+					<div class="dropdown">
+						<button class="dropbtn">TV</button>
+						<div class="dropdown-content">
+							<a href="tvonair" title="TV show that has an episode with an air date in the next 7 days">On Air</a>
+							<a href="tvtoprated">Top Rated</a>
+							<a href="tvpopular">Popular</a>
+						</div>
 					</div>
 				</div>
 			</div>

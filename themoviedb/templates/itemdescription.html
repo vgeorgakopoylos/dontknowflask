@@ -1,5 +1,5 @@
 <table class="descriptiontable">
-	{% if itemInfo.overview is not none %}
+	{% if itemInfo.overview%}
 	<tr>	
 		<td>
 			Overview
@@ -8,30 +8,30 @@
 			{{itemInfo.overview}}
 		</td>
 	</tr>
-	{% if itemInfo.vote_average is not none %}	
+	{% endif %}
+	{% if itemInfo.vote_average and  itemInfo.vote_count >0 %}	
 	<tr>
 		<td>
-			Raiting
+			Rating
 		</td>
 		<td>
-			{% endif %}
 			{% with rate = itemInfo.vote_average %}
 			{% include 'ratingfivestar.html' %}
 			{% endwith %}	
 		</td>
 	</tr>
 	{% endif %}
-	{% if itemInfo.vote_count >0 %}	
+	{% if itemInfo.vote_count >0 and itemInfo.vote_count%}	
 	<tr>
 		<td>
-			Raiting Info
+			Rating Info
 		</td>
 		<td>
 			Average {{itemInfo.vote_average}}/10 out of {{itemInfo.vote_count}} Votes
 		</td>
 	</tr>
 	{% endif %}	
-	{% if itemInfo.homepage is not none %}		
+	{% if itemInfo.homepage%}		
 	<tr>
 		<td>
 			Site
@@ -41,6 +41,7 @@
 		</td>
 	</tr>
 	{% endif %}
+	{% if itemInfo.genres|length>0%}	
 	<tr>
 		<td>
 			Genres
@@ -55,6 +56,7 @@
 		{%endfor%}			
 		</td>
 	</tr>
+	{% endif %}
 	{% if itemInfo.status == "Released" %}	
 	<tr>
 		<td>
@@ -92,12 +94,9 @@
 		<td>
 			Directors
 		</td>
-		<td style="vertical-align: middle">
-			{% with fontcolor = '#e6eaed' %}
+		<td style="vertical-align:middle">
 			{% include 'directors.html' %}
-			{% endwith %}	
 		</td>
 	</tr>
 	{% endif %}
-	
 </table>

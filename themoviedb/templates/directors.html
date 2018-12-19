@@ -1,8 +1,8 @@
 {% for director in credits.crew|selectattr('job', 'equalto', 'Director')|selectattr("image_path") %}
-	<div><img style="vertical-align:middle;color:{{fontcolor}}" src={{director.image_path}}> {{director.name}}</div>
+	<p><div class="directorrowcont"><img src={{director.image_path}}> {{director.name}}</div></p>
 {%endfor%}
 {% for director in credits.crew|selectattr('job', 'equalto', 'Director')|rejectattr("image_path") %}
-	<div style="display:table-cell;vertical-align:middle;color:{{fontcolor}}">{{director.name}}</div>
+	<p><div class="directorrowcont">{{director.name}}</div></p>
 {%endfor%}
 
     

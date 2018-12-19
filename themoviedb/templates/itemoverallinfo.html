@@ -5,18 +5,16 @@
 		<div class="itemoverallinfotitle">
 			{{itemInfo[config['ITEMS_KEY_GAPS']['title'][itemdesc]]}}
 		</div>
-		<div style="display:flex">
-			<div style="width:350px;flex-direction:column">
-				<div style="width:350px">{% include 'imageslideshow.html' %}</div>
-				<div style="width:350px">{% include 'videoslideshow.html' %}</div>
+		<div class="itemoverallinfoobjpar" >
+			<div class="itemoverallinfoobj">
+				<div class="itemoveralmedia">
+					<div>{% include 'imageslideshow.html' %}</div>
+					<div>{% include 'videoslideshow.html' %}</div>
+				</div>
+				<div class="itemdescriptioncont">{% include 'itemdescription.html' %}</div>
+				<div>{% include 'casting.html' %}</div>
 			</div>
-			<div style="width:500px">{% include 'itemdescription.html' %}</div>
-			<div>
-				{% with fontcolor = '#e6eaed' %}
-				{% include 'casting.html' %}
-				{% endwith %}	
-			</div>
-		</div>
+		</div>	
 		<div>
 			{% include 'similaritemshorizontal.html' %}
 		</div>

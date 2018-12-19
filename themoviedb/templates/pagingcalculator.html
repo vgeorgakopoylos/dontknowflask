@@ -1,4 +1,4 @@
-<table class="calculator-table">
+<table class="calculatortable">
 		{% if curPage|int != 1 %}
 			<tr class="arrowtablerow"><td colspan="{{pageColLimit}}"><a href="{{ url_for(pagingMethod, curPage=curPage|int-1) }}" title="Previous Page"><img class="uparrow" src="{{url_for('static', filename='images/updownarrow.png')}}"></td></tr>
 		{% endif %}
