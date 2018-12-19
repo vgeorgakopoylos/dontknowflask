@@ -9,12 +9,16 @@ import datetime
 def set_parameters():
 	if 'languages' not in session:
 		session['languages'] = '';
-		request_ip = request.remote_addr;
+		if not request.headers.getlist("X-Forwarded-For"):
+		   request_ip = request.remote_addr
+		else:
+		   request_ip  = request.headers.getlist("X-Forwarded-For")[0]		
+		
 		resp = requestlib.apiIPCall(request_ip);
-		print ("***********");
-		print (resp);
-		for languages in resp['location']['languages']:
-			session['languages'] = session['languages'] + languages['code']+ ',';
+
+		if (resp['location']['languages'] is not None):
+			for languages in resp['location']['languages']:
+				session['languages'] = session['languages'] + languages['code']+ ',';
 		
 		if session['languages'] == '':
 			session['languages'] = 'en'
