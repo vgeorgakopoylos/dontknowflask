@@ -33,15 +33,10 @@ function decideSlideIndex (slideIndex, slideLength, n)
 	return slideIndex
 }
 
-function createdYoutubePlayers()
-{
-	alert("ante gia");
-}
 $(document).ready(function() 
 {
 	timeoutHandleImg = setInterval(function(){showSlides(1,"imageslideshow",'img','timeoutHandleImg')}, 5000);
 	timeoutHandleVid = setInterval(function(){showSlides(1,"videoslideshow",'iframe','timeoutHandleVid')}, 5000);
-	createdYoutubePlayers();
 })
 
 
