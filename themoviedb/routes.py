@@ -11,6 +11,8 @@ def set_parameters():
 		session['languages'] = '';
 		request_ip = request.remote_addr;
 		resp = requestlib.apiIPCall(request_ip);
+		print ("***********");
+		print (resp);
 		for languages in resp['location']['languages']:
 			session['languages'] = session['languages'] + languages['code']+ ',';
 		
